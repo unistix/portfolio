@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;400&display=swap');
 
 :root{
-	--yellow: #f9ca24;
+	--yellow: #E0B0FF; /*rename*/
 }
 
 *{
@@ -317,13 +317,26 @@ header .navbar ul li a::hover{
 	padding:  2rem 0;
 }
 
-.portfolio .box-container .box{
-	height:  20rem;
+.portfolio .box-container ._box{
+	display:  flex;
+	height:  25rem;
 	width:  26rem;
-	border-radius: 1rem;
 	margin:  2rem;
+	align-items:  center;
+	flex-direction: column;
+}
+
+.portfolio .box-container ._box .box{
+	height:  100%;
+	width:  100%;
+	/*height:  20rem;
+	width:  26rem;*/
+	border-radius: 1rem ;
+	margin:  2rem 0 1rem 0;
 	overflow:  hidden;
 	cursor: pointer;
+	position: relative;
+
 }
 
 .portfolio .box-container .box img{
@@ -332,9 +345,58 @@ header .navbar ul li a::hover{
 	object-fit:  cover;
 
 }
+.portfolio .box-container ._box .box .icons{
+	/*position:  absolute;
+	bottom: -7rem; left: 0; right: 0; /*This combined with :hover bottom 0 will do a smooth peek hover effect*
+	bottom: -1rem;
+	
+	display:  flex;*/
+	font-size:  1rem;
+	color:  #fff;
+	position:  absolute;
+	z-index: 10;
+	bottom: -2rem;
+	left: 8rem;
+	
+	
+	
 
-.portfolio .box-container .box::hover img{
+}
+.portfolio .box-container ._box .box .icons a{
+	/*position:  absolute;
+	bottom: -7rem; left: 0; right: 0; /*This combined with :hover bottom 0 will do a smooth peek hover effect*
+	
+	display:  flex;*/
+	font-size:  1rem;
+	color:  #fff;
+	padding:  0 1rem;
+	
+
+}
+
+
+
+
+.portfolio .box-container ._box h4{
+	font-size:  2rem;
+	color:  #fff;
+	text-align:  center;
+
+}
+
+.portfolio .box-container .box:hover img{
 	transform:  scale(1.2);
+}
+
+.portfolio .box-container ._box:hover .icons{
+	bottom: 8rem;
+	left: 8rem;
+}
+
+.portfolio .box-container ._box:hover h4{
+	font-size:  2.5rem;
+	
+
 }
 
 .contact .row{
