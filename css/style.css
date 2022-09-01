@@ -191,6 +191,8 @@ header .navbar ul li a::hover{
 	font-size:  2rem;
 	color:  #eee;
 	padding:  1rem 0;
+	text-transform: none;
+
 }
 
 .about .row{
@@ -220,6 +222,8 @@ header .navbar ul li a::hover{
 	padding:  0.5rem;
 
 }
+
+
 
 
 .about .row .counter{
@@ -355,8 +359,8 @@ header .navbar ul li a::hover{
 	color:  #fff;
 	position:  absolute;
 	z-index: 10;
-	bottom: -2rem;
-	left: 8rem;
+	bottom: -4rem;
+	left: 4rem;
 	
 	
 	
@@ -370,6 +374,24 @@ header .navbar ul li a::hover{
 	font-size:  1rem;
 	color:  #fff;
 	padding:  0 1rem;
+	
+
+}
+
+.portfolio .box-container ._box .box .icons button{
+	/*position:  absolute;
+	bottom: -7rem; left: 0; right: 0; /*This combined with :hover bottom 0 will do a smooth peek hover effect*
+	
+	display:  flex;*/
+	font-size:  1rem;
+	background-color:  var(--yellow);
+	margin: 0rem 1rem 0rem 1rem;
+	padding: 1rem;
+	border-radius: 5px;
+	font-weight: 900;
+	
+	box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+	
 	
 
 }
@@ -390,7 +412,7 @@ header .navbar ul li a::hover{
 
 .portfolio .box-container ._box:hover .icons{
 	bottom: 8rem;
-	left: 8rem;
+	left: 4rem;
 }
 
 .portfolio .box-container ._box:hover h4{
