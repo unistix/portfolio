@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;400&display=swap');
 
 :root{
-	--yellow: #E0B0FF; /*rename*/
+	--purple: #E0B0FF; /*rename*/
 }
 
 *{
@@ -16,7 +16,7 @@
 }
 
 *::selection{
-	background: var(--yellow);
+	background: var(--purple);
 	color: #333;
 }
 
@@ -24,7 +24,7 @@ html{
 	font-size:  62.5%;
 	overflow-x: hidden;
 	scrollbar-width: thin;
-	scrollbar-color: #222 var(--yellow);
+	scrollbar-color: #222 var(--purple);
 }
 
 html::-webkit-scrollbar{
@@ -36,7 +36,7 @@ html::-webkit-scrollbar-track{
 }
 
 html::-webkit-scrollbar-thumb{
-	background: var(--yellow);
+	background: var(--purple);
 }
 
 body{
@@ -68,7 +68,7 @@ section{
 }
 
 .btn:hover{
-	background:  var(--yellow);
+	background:  var(--purple);
 
 }
 
@@ -82,7 +82,7 @@ section{
 }
 
 .heading span {
-	color: var(--yellow);
+	color: var(--purple);
 }
 
 
@@ -106,7 +106,7 @@ header .user img{
 	border-radius: 50%;
 	object-fit:  cover;
 	margin-bottom:  1rem;
-	border: .7rem solid var(--yellow);
+	border: .7rem solid var(--purple);
 
 }
 
@@ -118,7 +118,7 @@ header .user .name {
 }
 	
 header .user .post {
-	font-size:  2rem;
+	font-size:  1.75rem;
 	color:  #eee;
 
 
@@ -146,7 +146,7 @@ header .navbar ul li a{
 }
 
 header .navbar ul li a::hover{
-	background: var(--yellow);
+	background: var(--purple);
 
 }
 
@@ -183,7 +183,7 @@ header .navbar ul li a::hover{
 }
 
 .home h1 span{
-	color:  var(--yellow);
+	color:  var(--purple);
 
 }
 
@@ -212,7 +212,7 @@ header .navbar ul li a::hover{
 
 .about .row h3{
 	font-size:  2rem;
-	color: var(--yellow);
+	color: var(--purple);
 	padding: 1rem;
 	font-weight:  normal;
 }
@@ -245,7 +245,7 @@ header .navbar ul li a::hover{
 
 .about .row .counter .box span{
 	font-size:  4rem;
-	color: var(--yellow);
+	color: var(--purple);
 }
 
 .about .row .counter .box h3{
@@ -303,7 +303,7 @@ header .navbar ul li a::hover{
 	text-align:  center;
 	font-size: 2rem;
 	color: #fff;
-	background:  var(--yellow);
+	background:  var(--purple);
 }
 
 .portfolio h3{
@@ -384,7 +384,7 @@ header .navbar ul li a::hover{
 	
 	display:  flex;*/
 	font-size:  1rem;
-	background-color:  var(--yellow);
+	background-color:  var(--purple);
 	margin: 0rem 1rem 0rem 1rem;
 	padding: 1rem;
 	border-radius: 5px;
@@ -395,6 +395,25 @@ header .navbar ul li a::hover{
 	
 
 }
+
+
+.portfolio .box-container ._box .source-only .icons {
+	/*position:  absolute;
+	bottom: -7rem; left: 0; right: 0; /*This combined with :hover bottom 0 will do a smooth peek hover effect*
+	
+	display:  flex;*/
+	font-size:  1rem;
+	color:  #fff;
+	position:  absolute;
+	z-index: 10;
+	bottom: -4rem;
+	left: 8.5rem;
+	
+	
+
+}
+
+
 
 
 
@@ -419,7 +438,29 @@ header .navbar ul li a::hover{
 	font-size:  2.5rem;
 	
 
+
 }
+
+.portfolio .box-container ._box:hover .source-only .icons{
+	/*position:  absolute;
+	bottom: -7rem; left: 0; right: 0; /*This combined with :hover bottom 0 will do a smooth peek hover effect*
+	
+	display:  flex;*/
+	font-size:  1rem;
+	color:  #fff;
+	position:  absolute;
+	z-index: 10;
+	bottom: 8rem;
+	left: 8.5rem;
+	
+	
+
+}
+
+
+
+
+
 
 .contact .row{
 	display:  flex;
@@ -486,7 +527,7 @@ header .navbar ul li a::hover{
 
 .contact .row .content .info h3 i {
 	padding-right: 1rem;
-	color: var(--yellow);
+	color: var(--purple);
 
 }
 
@@ -498,7 +539,7 @@ header .navbar ul li a::hover{
 }
 
 .top i{
-	color: var(--yellow);
+	color: var(--purple);
 	font-size: 4rem;
 }
 
