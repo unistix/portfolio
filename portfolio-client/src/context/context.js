@@ -24,11 +24,27 @@ const AppProvider = ({children}) => {
 
 	const navLeft = () => {
 		console.log("nav left clicked")
+		let cSIndex = currentSection //currenrt section index
+		cSIndex--
+		
+		if(cSIndex<0){
+			setCurrentSection(2) //better to use a full list rather than hardcode but only 3 so save time 
+		}else{
+			setCurrentSection(cSIndex)
+		}
 		//increment index unless last
 	}
 
 	const navRight = () => {
 		console.log("nav right clicked")
+		let cSIndex = currentSection //currenrt section index
+		cSIndex++
+		
+		if(cSIndex>2){
+			setCurrentSection(0) //better to use a full list rather than hardcode but only 3 so save time 
+		}else{
+			setCurrentSection(cSIndex)
+		}
 		//decrement index unless last
 	}
 

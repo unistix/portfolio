@@ -19,12 +19,12 @@ const Nav = () => {
           <FaBars />
         </button>
 
-        <Link to={getSectionName(0)}>
+        <Link to={getSectionName(currentSection)}>
           <button className="nav-left" onClick={navLeft}>
             <FaAngleLeft />
           </button>
         </Link>
-        <Link to={getSectionName(1)}>
+        <Link to={getSectionName(currentSection)}>
         <button className="nav-right" onClick={navRight}>
           <FaAngleRight />
         </button>
