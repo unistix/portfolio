@@ -1,4 +1,5 @@
 import React from 'react'
+import BuyTeaSection  from "../components/BuyTeaSection"
 
 const Contact = () => {
   const [formStatus, setFormStatus] = React.useState('Send')
@@ -109,6 +110,9 @@ const Contact = () => {
               {formStatus}
             </button>
           </form>
+        </div>
+        <div className='buy-tea-container'>
+          <BuyTeaSection/>
         </div>
     </div>
     
