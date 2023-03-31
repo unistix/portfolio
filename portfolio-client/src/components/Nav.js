@@ -50,12 +50,12 @@ const Nav = () => {
 
         <Link to={ currentSection-1 < 0 ? getNextSectionName(2):getNextSectionName(currentSection-1)} className="nav-arrow"  onClick={handleLeft}>
        
-            <FaAngleLeft />
+            <FaAngleLeft className='nav-arrow-left' />
       
         </Link>
         <Link to={currentSection+1 > 2 ? getNextSectionName(0):getNextSectionName(currentSection+1)} className="nav-arrow" onClick={handleRight}>
      
-          <FaAngleRight />
+          <FaAngleRight className='nav-arrow-right'/>
 
         </Link>
         {/*

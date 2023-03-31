@@ -6,6 +6,7 @@ import Contact  from "./pages/contact"
 import Portfolio  from "./pages/portfolio"
 import Nav  from "./components/Nav"
 import Sidebar  from "./components/Sidebar"
+import SwiperDots  from "./components/SwiperDots"
 
 
 // Import Swiper styles
@@ -15,6 +16,7 @@ import Sidebar  from "./components/Sidebar"
 function App() {
   return (
     <div className="App">
+      <main>
       <Sidebar />
       <Nav/>
       <h1>Portfolio Site</h1>
@@ -23,7 +25,10 @@ function App() {
       <Route path="/portfolio" element={<Portfolio />} />
       <Route path="/contact" element={<Contact />} />
       </Routes>
+      <SwiperDots/>
+      </main>
     </div>
+    
   );
 }
 

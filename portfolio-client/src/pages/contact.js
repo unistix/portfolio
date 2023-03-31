@@ -1,8 +1,14 @@
 import React from 'react'
 import BuyTeaSection  from "../components/BuyTeaSection"
+import { useGlobalContext} from '../context/context'
 
 const Contact = () => {
   const [formStatus, setFormStatus] = React.useState('Send')
+  const {cname, setName, message, setMessage} = useGlobalContext()
+
+  
+  const nameValue = React.useRef('');
+  const messageValue = React.useRef('');
 
   async function handleSubmit(e){
     e.preventDefault(); //stop page reload on submit
@@ -92,7 +98,7 @@ const Contact = () => {
               <label className="form-label" htmlFor="name">
                 Name
               </label>
-              <input className="form-control" type="text" id="name" required />
+              <input className="form-control" type="text" id="name" ref={nameValue} required onChange={() => setName(nameValue.current.value)}/>
             </div>
             <div className="form-input">
               <label className="form-label" htmlFor="email">
@@ -104,7 +110,7 @@ const Contact = () => {
               <label className="form-label" htmlFor="message">
                 Message
               </label>
-              <textarea className="form-control" id="message" required />
+              <textarea className="form-control" id="message" ref={messageValue} required onChange={() => setMessage(messageValue.current.value) }/>
             </div>
             <button className="btn" type="submit">
               {formStatus}

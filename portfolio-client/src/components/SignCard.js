@@ -19,7 +19,7 @@ const SignCard = () => {
           <button id="button-connected"> {`${currentAccount.substring(0,6)}... Connected`} </button>
          
         ) : (
-          <button id="button-not-connected" onClick={connectWallet}> Connect your wallet </button>
+          <button id="button-not-connected" onClick={connectWallet}> Connect your wallet to buy tea </button>
         )}
 
 

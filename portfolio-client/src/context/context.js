@@ -9,21 +9,28 @@ const AppContext = React.createContext();
 
 
 const AppProvider = ({children}) => {
+	const delay = ms => new Promise(res => setTimeout(res, ms)); 
+
 	/*Metamask and buy me a tea contract */
-	const contractAddress = "0xEd957ba375dc66A1f8ABAba947985922105ae0Af";
+	const contractAddress = "0x2d6b4449124f3f269d62101A3C31E5ed6C60f7D0";
   	const contractABI = abi.abi;
 
   	const [currentAccount, setCurrentAccount] = useState("");
   	const [balance, setBalance] = useState(0);
 	const [currentChainId, setcurrentChainId] = useState(null);
-	const [networkError, setnetworkError] = useState(""); //make sure to cange from test net to main net 
+	const [networkError, setNetworkError] = useState(""); //make sure to cange from test net to main net 
+	const [networkSuccess, setNetworkSuccess] = useState("");
+	const [networkLoading, setNetworkLoading] = useState("");
+	const [name, setName] = useState("");
+  	const [message, setMessage] = useState("");
+	const [memos, setMemos] = useState([]);
 
 	const sectionArray = ["/","/portfolio","/contact"] //use this instead of get section name and hard indexing long term
 
 	const getSectionId = () => {
 
 		let section_name = window.location.href.replace("http://localhost:3000","")
-		console.log(section_name)
+		
 		let section_id = sectionArray.indexOf(section_name)
 		return section_id
 
@@ -42,17 +49,22 @@ const AppProvider = ({children}) => {
 			console.log(accounts)
 			//setWalletAddress(accounts[0]);
 			setCurrentAccount(accounts[0]);
-			setcurrentChainId(window.ethereum.networkVersion)
+
+			const chainID = window.ethereum.networkVersion
+			//console.log(chainID)
+			setcurrentChainId(chainID)
+			
 	
 			const balance = await window.ethereum.request({
 			  method: 'eth_getBalance', 
 			  params: [accounts[0], 'latest']
 			});
-			console.log(ethers.utils.formatEther(balance))
+		
 			setBalance(ethers.utils.formatEther(balance));
 			
 		  } catch (error) {
 			console.log('Error connecting...');
+			setNetworkError('Error connecting...')
 		  }
 	
 		} else {
@@ -68,6 +80,7 @@ const AppProvider = ({children}) => {
 		}
 		else{
 		  console.log('Meta Mask not detected');
+		  setNetworkError('Meta Mask not detected')
 		}
 	  } 
 
@@ -77,16 +90,130 @@ const AppProvider = ({children}) => {
 	  //Check network and only enable buy button if the network is also correct otherwise ask them to change network 
 
 	  const checkChainID = () =>{
-			console.log(window.ethereum.networkVersion)
+			return window.ethereum.networkVersion
 			
 	  }
-	
-	/*
 
-	const buyCoffee = async () => {
+	  const networkErrorHelper = async () =>{
+		await delay(5000);
+        setNetworkError("")
+		setNetworkSuccess("")
+		//setNetworkLoading("")
+		
+  	  }
+	  
+	
+	useEffect(() => {
+        //account and chain change handler 
+        //console.log(`network error has been changed ${networkError}`)
+        let buyMeATea;
+        networkErrorHelper()
+
+		getMemos();
+
+    // Create an event handler function for when someone sends
+    // us a new memo.
+
+    // Create an event handler function for when someone sends
+    // us a new memo.
+    	const onNewMemo = (from, timestamp, name, message) => {
+      	console.log("Memo received: ", from, timestamp, name, message);
+      	setMemos((prevState) => [
+        ...prevState,
+        {
+          address: from,
+          timestamp: new Date(timestamp * 1000),
+          message,
+          name
+        }
+      ]);
+    };
+
+    const {ethereum} = window;
+
+    // Listen for new memo events.
+    if (ethereum) {
+      const provider = new ethers.providers.Web3Provider(ethereum, "any");
+      const signer = provider.getSigner();
+      buyMeATea = new ethers.Contract(
+        contractAddress,
+        contractABI,
+        signer
+      );
+
+      buyMeATea.on("NewMemo", onNewMemo);
+    }
+
+    return () => {
+      if (buyMeATea) {
+        buyMeATea.off("NewMemo", onNewMemo);
+      }
+    }
+
+
+       
+        //matic 5
+        //mumbai 80081
+     }, [networkError,networkSuccess]);
+
+	const buyTea = async (tea) => {
+		let _value = "0.1"
+
+		let teaPriceMap = {  peppermint: "0.1",
+						ginger: "0.5",
+						chamomile: "1"
+		
+		
+		}
+
+		//map for price and tea 
 		try {
 		  const { ethereum } = window;
 		  
+		  if(typeof window.ethereum !== 'undefined') {
+		  //await requestAccount();
+	
+		  const provider = new ethers.providers.Web3Provider(window.ethereum);
+			const signer = provider.getSigner();
+			const buyMeATea= new ethers.Contract(
+			  contractAddress,
+			  contractABI,
+			  signer
+			);
+	
+			console.log("buying tea..")
+			setNetworkLoading("buying tea..");
+			//Create a state variable and show these steps on page
+			const teaTxn = await buyMeATea.buyTea(
+			  name ? name : "anon",
+			  message ? message : "Enjoy your tea!",
+			  {value: ethers.utils.parseEther(teaPriceMap[tea])}
+			);
+	
+			await teaTxn.wait();
+	
+			console.log("mined ", teaTxn.hash);
+	
+			console.log("coffee purchased!");
+			setNetworkSuccess("tea purchased!");
+			setNetworkLoading("")
+		
+	
+			// Clear the form fields.
+			setName("");
+			setMessage("");
+		  }
+		} catch (error) {
+		  console.log(error);
+		  setNetworkError(error.data.message.substring(4,23))
+		}
+	
+	
+	}
+
+	  const getMemos = async () => {
+		try {
+		  const { ethereum } = window;
 		  if(typeof window.ethereum !== 'undefined') {
 		  //await requestAccount();
 	
@@ -97,30 +224,19 @@ const AppProvider = ({children}) => {
 			  contractABI,
 			  signer
 			);
-	
-			console.log("buying coffee..")
-			const coffeeTxn = await buyMeACoffee.buyCoffee(
-			  name ? name : "anon",
-			  message ? message : "Enjoy your coffee!",
-			  {value: ethers.utils.parseEther("0.001")}
-			);
-	
-			await coffeeTxn.wait();
-	
-			console.log("mined ", coffeeTxn.hash);
-	
-			console.log("coffee purchased!");
-	
-			// Clear the form fields.
-			setName("");
-			setMessage("");
+			
+			console.log("fetching memos from the blockchain..");
+			const memos = await buyMeACoffee.getMemos();
+			console.log("fetched!");
+			setMemos(memos);
+		  } else {
+			console.log("Metamask is not connected");
 		  }
+		  
 		} catch (error) {
 		  console.log(error);
 		}
-	
-	
-	  }*/
+	  };
 
 
 
@@ -128,11 +244,7 @@ const AppProvider = ({children}) => {
 	const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 	const [currentSection, setCurrentSection] = useState(getSectionId());
 	
-	/*
-	useEffect(() => {
-		setCurrentSection(getSectionId())
-	}, [currentSection])
-	*/
+
 
 	const openSidebar =() => {
 		setIsSidebarOpen(true)
@@ -146,7 +258,7 @@ const AppProvider = ({children}) => {
 		console.log("open side bar clicked")
 	}
 
-	console.log('shown current' + currentSection)
+	
 
 	const navLeft = () => {
 		console.log("nav left clicked")
@@ -166,10 +278,7 @@ const AppProvider = ({children}) => {
 			
 		}
 		
-		//increment index unless last
-		/*console.log(window.location.href)
-		console.log(cSIndex)
-		console.log(currentSection)*/
+	
 	}
 
 	const navRight = () => {
@@ -191,12 +300,7 @@ const AppProvider = ({children}) => {
 
 		
 		}
-		/*
-		//decrement index unless last
-		console.log(window.location.href)
-		console.log(cSIndex)
-		console.log(currentSection)
-		*/
+
 	}
 
 	const toggleSidebar =() => {
@@ -259,7 +363,19 @@ const AppProvider = ({children}) => {
 		currentAccount,
 		checkChainID,
 		currentChainId,
-		getSectionId}}>{children}</ AppContext.Provider>
+		getSectionId,
+		requestAccount,
+		networkError,
+		setNetworkError,
+		networkErrorHelper,
+		networkSuccess,
+		networkLoading,
+		setName,
+		name,
+		setMessage,
+		message,
+		buyTea,
+		memos}}>{children}</ AppContext.Provider>
 	)
 
 }

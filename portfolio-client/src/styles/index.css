@@ -40,9 +40,20 @@ main {
 }
 
 .nav-arrow {
-  font-size: 4rem;
+  font-size: 5rem;
+  
 }
-
+.nav-arrow-left{
+  position: fixed;
+  left: 1rem;
+  bottom:50%;
+}
+.nav-arrow-right{
+  position: fixed;
+  right: 1rem;
+  bottom:50%;
+  
+}
 /*
 @keyframes bounce {
   0% {
@@ -165,4 +176,6 @@ Sidebar
   .sidebar {
     width: 400px;
   }
+
+  /*move the arrows further apart*/
 }

@@ -1,0 +1,16 @@
+.error {
+    color:red !important;
+    
+}
+
+.warning {
+    color:blue !important;
+    
+}
+
+.success {
+    color:green !important;
+    
+}
+
+/*Scroll box for memos instrad of showing first three*/
