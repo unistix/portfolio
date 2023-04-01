@@ -4,7 +4,7 @@ import { useGlobalContext} from '../context/context'
 
 const Contact = () => {
   const [formStatus, setFormStatus] = React.useState('Send')
-  const {cname, setName, message, setMessage} = useGlobalContext()
+  const {cname, setName, message, setMessage, handlers} = useGlobalContext()
 
   
   const nameValue = React.useRef('');
@@ -90,7 +90,8 @@ const Contact = () => {
 
   
   return (
-    <div>
+    <>
+    <div className='main-area'{...handlers}>
       <p>Contact Us</p>
         <div className='form-container'>
           <form onSubmit={handleSubmit}>
@@ -121,6 +122,7 @@ const Contact = () => {
           <BuyTeaSection/>
         </div>
     </div>
+    </>
     
   )
 }

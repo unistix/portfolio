@@ -54,6 +54,16 @@ main {
   bottom:50%;
   
 }
+
+.nav{
+  
+  background: red;
+}
+
+.main-area{
+  
+  height:80vh;
+}
 /*
 @keyframes bounce {
   0% {

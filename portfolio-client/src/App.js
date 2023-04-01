@@ -8,6 +8,8 @@ import Nav  from "./components/Nav"
 import Sidebar  from "./components/Sidebar"
 import SwiperDots  from "./components/SwiperDots"
 
+import SwipeHandleWrapper  from "./components/SwipeHandleWrapper"
+
 
 // Import Swiper styles
 //swiper which takes you to specific paths but once you reach the last one it loops back to the first 
@@ -16,7 +18,9 @@ import SwiperDots  from "./components/SwiperDots"
 function App() {
   return (
     <div className="App">
+      
       <main>
+     
       <Sidebar />
       <Nav/>
       <h1>Portfolio Site</h1>
@@ -26,7 +30,9 @@ function App() {
       <Route path="/contact" element={<Contact />} />
       </Routes>
       <SwiperDots/>
+
       </main>
+      
     </div>
     
   );

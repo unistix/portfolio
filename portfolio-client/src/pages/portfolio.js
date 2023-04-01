@@ -1,9 +1,15 @@
 import React from 'react'
-//read in Json objects as links
-const portfolio = () => {
+import { useGlobalContext} from '../context/context'
+
+const Portfolio = () => {
+  const {handlers} = useGlobalContext();
   return (
-    <div>Portfolio</div>
+    <>
+    <div className='main-area'{...handlers}><p>Portfolio</p></div>
+    </>
+
+
   )
 }
 
-export default portfolio
+export default Portfolio

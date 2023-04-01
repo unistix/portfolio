@@ -1,6 +1,9 @@
 import React, { useState, useContext, useEffect } from 'react'
+
 import abi from '../utils/BuyMeATea.json';
 import { ethers } from "ethers";
+import { useSwipeable } from 'react-swipeable';
+
 
 
 
@@ -10,6 +13,7 @@ const AppContext = React.createContext();
 
 const AppProvider = ({children}) => {
 	const delay = ms => new Promise(res => setTimeout(res, ms)); 
+	
 
 	/*Metamask and buy me a tea contract */
 	const contractAddress = "0x2d6b4449124f3f269d62101A3C31E5ed6C60f7D0";
@@ -259,49 +263,50 @@ const AppProvider = ({children}) => {
 	}
 
 	
+	const handlers = useSwipeable({
+		onSwipedLeft: () => {document.getElementById("swipe-left").click();
+		},
+		onSwipedRight: () =>  {document.getElementById("swipe-right").click();},
+		swipeDuration: 500,
+		preventScrollOnSwipe: true,
+		trackMouse: true
+	  });
 
-	const navLeft = () => {
-		console.log("nav left clicked")
-		
-		//let cSIndex = currentSection //currenrt section index
-		//console.log(currentSection)
-		let cSIndex = getSectionId()
-		
-		cSIndex--
-		
-		if(cSIndex<0){
-			setCurrentSection(sectionArray.length-1) //better to use a full list rather than hardcode but only 3 so save time 
-			//incase wierd thing happen this clears out the indexing
-		}else{
-			
-			setCurrentSection(cSIndex)
-			
-		}
-		
 	
-	}
-
-	const navRight = () => {
-		console.log("nav right clicked")
-		//let cSIndex = currentSection //currenrt section index
-		
-		let cSIndex = getSectionId()
-		cSIndex++
-
-		
-		
-		
-		if(cSIndex>sectionArray.length-1){
-			setCurrentSection(0) //better to use a full list rather than hardcode but only 3 so save time 
-			
+	  function handleLeft(){
+		console.log('handleLeft clicked')
+		/*
+		console.log(getNextSectionName(currentSection))
+		console.log(getNextSectionName(currentSection-1))
+		console.log(currentSection)*/
+	
+		if(currentSection-1<0){
+		  setCurrentSection(2)
+		}else{
+		  setCurrentSection(currentSection-1)
 		}
-		else{
-			setCurrentSection(cSIndex)
-
 		
+		//setCurrentSection(getSectionId())
+		//etCurrentSection(currentSection-1)
+		//return 
+	
+	  }
+	
+	  function handleRight(){
+		console.log('handleright clicked')
+		/*
+		console.log(getNextSectionName(currentSection))
+		//
+		console.log(getNextSectionName(currentSection+1))
+		console.log(currentSection)*/
+		setCurrentSection(currentSection+1)
+		if(currentSection+1>2){
+		  setCurrentSection(0)
+		}else{
+		  setCurrentSection(currentSection+1)
 		}
-
-	}
+		//setCurrentSection(getSectionId())
+	  }
 
 	const toggleSidebar =() => {
 		if(isSidebarOpen){
@@ -354,8 +359,8 @@ const AppProvider = ({children}) => {
         openSidebar, 
         closeSidebar,
 		toggleSidebar,
-		navLeft,
-		navRight,
+		handleLeft,
+		handleRight,
 		getNextSectionName,
 		currentSection,
 		setCurrentSection,
@@ -375,7 +380,8 @@ const AppProvider = ({children}) => {
 		setMessage,
 		message,
 		buyTea,
-		memos}}>{children}</ AppContext.Provider>
+		memos,
+		handlers}}>{children}</ AppContext.Provider>
 	)
 
 }

@@ -1,4 +1,5 @@
-import React, {useState, useEffect} from 'react'
+import React, { useRef,useState, useEffect} from 'react'
+import { useSwipeable } from 'react-swipeable';
 import { Route, Routes, Link } from "react-router-dom"
 import Home  from "../pages/home"
 import Contact  from "../pages/contact"
@@ -8,52 +9,63 @@ import { useGlobalContext} from '../context/context'
 import { FaBars, FaAngleLeft, FaAngleRight } from 'react-icons/fa'
 
 const Nav = () => {
-  const {toggleSidebar, navLeft, navRight, currentSection, setCurrentSection, getNextSectionName, getSectionId} = useGlobalContext();
-
+  const {toggleSidebar, handleLeft, handleRight, currentSection, setCurrentSection, getNextSectionName, getSectionId, handler} = useGlobalContext();
+  
+  
   //const section = getSectionName(currentSection)
   //Something is wrong with maths for left and right, also add faint loading bar
-  function handleLeft(){
-    console.log('handleLeft clicked')
-    console.log(getNextSectionName(currentSection))
-    console.log(getNextSectionName(currentSection-1))
-    console.log(currentSection)
-    setCurrentSection(currentSection-1)
-    //setCurrentSection(getSectionId())
-    //etCurrentSection(currentSection-1)
-    //return 
-
-  }
-
-  function handleRight(){
-    console.log('handleright clicked')
-    console.log(getNextSectionName(currentSection))
-    //
-    console.log(getNextSectionName(currentSection+1))
-    console.log(currentSection)
-    setCurrentSection(currentSection+1)
-    //setCurrentSection(getSectionId())
-  }
+  //const swipeL = React.useRef(null);
+  //const swipeR = React.useRef(null);
+ 
   useEffect(() => {
    setCurrentSection(getSectionId)
   }, [])
+  /*
+  //Mobile swipe controll
+  let touchstartX = 0
+  let touchendX = 0
+    
   
+  function checkDirection() {
+    if (touchendX < touchstartX) {
+      console.log("left swipe")
+      /*const swipeL = document.getElementById("swipe-left");
+      swipeL.click()
+      //handleLeft()
+    
+    }
+    if (touchendX > touchstartX) {
+      console.log("right swipe")
+      /*const swipeR = document.getElementById("swipe-right");
+      swipeR.click()*
+      //handleRight()
+    }
+  }
 
-  
+  document.addEventListener('touchstart', e => {
+    touchstartX = e.changedTouches[0].screenX
+  })
+
+  document.addEventListener('touchend', e => {
+    touchendX = e.changedTouches[0].screenX
+    checkDirection()
+  })*/
+    
   
 
   return (
     <div> 
-        <nav>
+        <nav {...handler} >
         <button className="sidebar-toggle" onClick={toggleSidebar}>
           <FaBars />
         </button>
 
-        <Link to={ currentSection-1 < 0 ? getNextSectionName(2):getNextSectionName(currentSection-1)} className="nav-arrow"  onClick={handleLeft}>
+        <Link to={ currentSection-1 < 0 ? getNextSectionName(2):getNextSectionName(currentSection-1)} className="nav-arrow" onClick={handleLeft} id="swipe-left">
        
             <FaAngleLeft className='nav-arrow-left' />
       
         </Link>
-        <Link to={currentSection+1 > 2 ? getNextSectionName(0):getNextSectionName(currentSection+1)} className="nav-arrow" onClick={handleRight}>
+        <Link to={currentSection+1 > 2 ? getNextSectionName(0):getNextSectionName(currentSection+1)} className="nav-arrow" onClick={handleRight}  id="swipe-right">
      
           <FaAngleRight className='nav-arrow-right'/>
 

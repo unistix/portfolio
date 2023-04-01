@@ -1,8 +1,14 @@
 import React from 'react'
+import { useGlobalContext} from '../context/context'
 
 const Home = () => {
+  const {handlers} = useGlobalContext();
   return (
-    <div><main><p>Home</p></main></div>
+    <>
+    <div className='main-area'{...handlers}><p>Home</p></div>
+    </>
+
+
   )
 }
 
