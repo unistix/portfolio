@@ -12,6 +12,47 @@ code {
     monospace;
 }
 
+/*Do not delete it stops buttons from doing wierd things on hover*/
+
+.btn-nice a{
+  text-decoration:none;
+  color:black;
+ 
+ 
+}
+
+.btn-nice a:hover{
+  text-decoration:none;
+  color:white;
+ 
+ 
+}
+
+
+
+.btn-nice{
+  
+  border:solid 2px #1f1f1f;
+  background: transparent;
+  color: #1f1f1f;
+  padding:5px;
+  margin: 2px;
+}
+
+
+
+
+.btn-nice:hover,
+.btn-nice:active,
+.btn-nice:hover *,
+.btn-nice:active *{
+  
+  border:solid 2px #1f1f1f;
+  background: #1f1f1f;
+  color: #fff;
+
+}
+
 //SIDE BAR PRE-REFACTOR
 /*
 =============== 
@@ -25,11 +66,24 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  
+  
 }
+
+.main-area {
+ width:80%;
+ margin:0 auto;
+  
+  
+}
+
+
+
+
 .sidebar-toggle {
   position: fixed;
-  top: 2rem;
-  right: 3rem;
+  top: 1rem;
+  right: 1rem;
   font-size: 2rem;
   background: transparent;
   border-color: transparent;
@@ -64,38 +118,6 @@ main {
   
   height:80vh;
 }
-/*
-@keyframes bounce {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.5);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-.btn {
-  text-transform: uppercase;
-  background: var(--clr-black);
-  color: var(--clr-white);
-  padding: 0.375rem 0.75rem;
-  letter-spacing: var(--spacing);
-  display: inline-block;
-  transition: var(--transition);
-  font-size: 0.875rem;
-  border: 2px solid var(--clr-black);
-  cursor: pointer;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-  border-radius: var(--radius);
-  margin: 0.5rem;
-}
-.btn:hover {
-  color: var(--clr-black);
-  background: transparent;
-}*/
 
 
 
@@ -110,6 +132,50 @@ Sidebar
   align-items: center;
   padding: 1rem 1.5rem;
 }
+ul {
+  list-style-type: none;
+  
+
+}
+li{
+  text-transform: uppercase;
+  text-decoration:none;
+}
+
+
+.links {
+  
+  font-size: 1.25rem;
+  margin: 20px 0 0 0;
+  padding: 0;
+
+}
+  
+.links > li > a{
+  
+    
+  text-decoration: none; 
+  
+  
+  
+
+  
+
+}
+  
+.links > li > a:visited {
+  
+    
+    text-decoration: none; 
+    
+    
+    
+  
+    
+  
+}
+
+
 /*
 .close-btn {
   font-size: 1.75rem;
@@ -126,30 +192,7 @@ Sidebar
 }*/
 
 /*
-.links a {
-  display: flex;
-  align-items: center;
-  font-size: 1.25rem;
-  text-transform: capitalize;
-  padding: 1rem 1.5rem;
-  color: var(--clr-grey-3);
-  transition: var(--transition);
-  letter-spacing: var(--spacing);
-}
 
-.links a:hover {
-  background: var(--clr-grey-10);
-  color: var(--clr-grey-2);
-}
-.links a svg {
-  font-size: 1.5rem;
-  color: var(--clr-grey-5);
-  margin-right: 1rem;
-  transition: var(--transition);
-}
-.links a:hover svg {
-  color: var(--clr-grey-4);
-}
 .social-icons {
   justify-self: center;
   display: flex;
@@ -170,22 +213,256 @@ Sidebar
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  background: var(--clr-white);
+  height: 20%;
+  background: #D3D3D3;
   display: grid;
   grid-template-rows: auto 1fr auto;
   row-gap: 1rem;
   box-shadow: var(--clr-red-dark);
-  transition: var(--transition);
-  transform: translate(-100%);
+  transition: all 0.3s linear;
+  transform: translate(0,-100%);
+  
 }
 .show-sidebar {
   transform: translate(0);
 }
+
+
+
+
+
+/*
+=============== 
+Light Dark Slider
+===============
+*/
+
+/* The switch - the box around the slider */
+.switch {
+  position: absolute;
+  display: inline-block;
+  width: 70px;
+  height: 34px;
+  
+  top: 1.05rem;
+  right: 5rem;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #03080d;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #ccc;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(35px);
+  -ms-transform: translateX(35px);
+  transform: translateX(35px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+
+/* Adding text in the toggle button */
+.switch .labels {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 12px;
+  font-family: sans-serif;
+  transition: all 0.4s ease-in-out;
+}
+
+
+.switch .labels::after {
+  content: attr(data-off);
+  position: absolute;
+  right: 5px;
+  color: #4d4d4d;
+  opacity: 1;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+  transition: all 0.4s ease-in-out;
+}
+
+.switch .labels::before {
+  content: attr(data-on);
+  position: absolute;
+  left: 5px;
+  color: #ffffff;
+  opacity: 0;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.4);
+  transition: all 0.4s ease-in-out;
+}
+
+.switch input:checked~.labels::after {
+  opacity: 0;
+}
+
+.switch input:checked~.labels::before {
+  opacity: 1;
+}
+
+/*
+=============== 
+Portfolio 
+===============
+*/
+.portfolio-item-container{
+  overflow-y:auto;
+  margin: 0 auto;
+  border: 1px solid white;
+  width: 80%;
+  height: 90%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.portfolio-image{
+  height:40%;
+  width:40%;
+}
+
+.portfolio-item{
+  height:40%;
+  width:40%;
+  margin: 0 auto;
+}
+
+
 @media screen and (min-width: 676px) {
   .sidebar {
-    width: 400px;
+    width: 300px;
+    height: 100%;
+    transform: translate(-100%);
+    transition: all 0.3s linear;
   }
+  .show-sidebar {
+    transform: translate(0);
+  }
+  
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0 0 0;
+  }
+  
+  
+  .links {
+    
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    text-decoration: none; 
+    
+    color: var(--clr-grey-3);
+    transition: var(--transition);
+    letter-spacing: var(--spacing);
+  }
+  .links > li > a{
+  
+    
+    text-decoration: none; 
+    
+    
+    
+  
+    
+  
+  }
+  .links > li > a:visited {
+  
+    
+    text-decoration: none; 
+    
+  
+  }
+
+ 
+
+
+  /*move the arrows further apart*/
+}
+
+
+
+
+@media screen and (max-width: 676px) {
+ 
+  .switch {
+    position: absolute;
+    display: inline-block;
+    width: 70px;
+    height: 34px;
+    top: 1.05rem;
+    left: 1rem;
+    
+    
+    
+  }
+
+  .nav-arrow {
+    font-size: 4rem;
+    opacity: 0.5;
+    
+  }
+  .nav-arrow-left{
+    position: fixed;
+    left: -10px;
+    bottom:50%;
+  }
+  .nav-arrow-right{
+    position: fixed;
+    right: -10px;
+    bottom:50%;
+    
+  }
+
+
 
   /*move the arrows further apart*/
 }

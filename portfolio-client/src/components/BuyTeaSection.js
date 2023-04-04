@@ -70,9 +70,9 @@ const BuyTeaSection = () => {
             <p>You can buy Tea</p>
             <p>If you would like to leave a message with your tea, fill out the name and message sections of the contact us form. Leave blank for anonymous tea.</p>
             
-            <button id="button-not-connected" onClick={() => buyTea("peppermint")}> Buy Peppermint Tea </button>
-            <button id="button-not-connected" onClick={() => buyTea("ginger")}> Buy Ginger Tea </button>
-            <button id="button-not-connected" onClick={() => buyTea("chamomile")}> Buy Chamomile Tea </button>
+            <button className='btn-nice' id="button-not-connected" onClick={() => buyTea("peppermint")}> Buy Peppermint Tea </button>
+            <button className='btn-nice' id="button-not-connected" onClick={() => buyTea("ginger")}> Buy Ginger Tea </button>
+            <button className='btn-nice' id="button-not-connected" onClick={() => buyTea("chamomile")}> Buy Chamomile Tea </button>
             {currentAccount && (<h1>Memos received</h1>)}
             <p className="error" >{networkError}</p>
             <p className="warning" ></p>

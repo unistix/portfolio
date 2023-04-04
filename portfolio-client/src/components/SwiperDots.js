@@ -8,7 +8,8 @@ const SwiperDots = () => {
 
   useEffect(() => {
     //account and chain change handler 
-    console.log(currentSection)
+    //console.log(currentSection)
+    //does this need to be here ?
  
 
 

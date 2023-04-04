@@ -7,6 +7,7 @@ import Portfolio  from "./pages/portfolio"
 import Nav  from "./components/Nav"
 import Sidebar  from "./components/Sidebar"
 import SwiperDots  from "./components/SwiperDots"
+import './styles/dark-light.css';
 
 import SwipeHandleWrapper  from "./components/SwipeHandleWrapper"
 

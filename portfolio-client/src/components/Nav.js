@@ -5,11 +5,12 @@ import Home  from "../pages/home"
 import Contact  from "../pages/contact"
 import Portfolio  from "../pages/portfolio"
 
+
 import { useGlobalContext} from '../context/context'
 import { FaBars, FaAngleLeft, FaAngleRight } from 'react-icons/fa'
 
 const Nav = () => {
-  const {toggleSidebar, handleLeft, handleRight, currentSection, setCurrentSection, getNextSectionName, getSectionId, handler} = useGlobalContext();
+  const {toggleSidebar, handleLeft, handleRight, currentSection, setCurrentSection, getNextSectionName, getSectionId, darkLightToggle, handler} = useGlobalContext();
   
   
   //const section = getSectionName(currentSection)
@@ -56,10 +57,17 @@ const Nav = () => {
   return (
     <div> 
         <nav {...handler} >
-        <button className="sidebar-toggle" onClick={toggleSidebar}>
+        <div className="sidebar-toggle" onClick={toggleSidebar}>
           <FaBars />
-        </button>
+        </div>
+        <div className="switch-container"></div>
+        <label className="switch">
+          <input type="checkbox" onChange={darkLightToggle}/>
+          <span className="slider round"></span>
+          <span className="labels" data-on="Dark" data-off="Light"></span>
+        </label>
 
+       
         <Link to={ currentSection-1 < 0 ? getNextSectionName(2):getNextSectionName(currentSection-1)} className="nav-arrow" onClick={handleLeft} id="swipe-left">
        
             <FaAngleLeft className='nav-arrow-left' />

@@ -28,6 +28,7 @@ const AppProvider = ({children}) => {
 	const [name, setName] = useState("");
   	const [message, setMessage] = useState("");
 	const [memos, setMemos] = useState([]);
+	const [darkMode, setDarkMode] = useState(false);
 
 	const sectionArray = ["/","/portfolio","/contact"] //use this instead of get section name and hard indexing long term
 
@@ -112,8 +113,12 @@ const AppProvider = ({children}) => {
         //console.log(`network error has been changed ${networkError}`)
         let buyMeATea;
         networkErrorHelper()
-
-		getMemos();
+		//if memos is not empty
+		//if signed in get memos otherwise wait till signed in
+		if(currentAccount){
+			getMemos();
+		}
+		
 
     // Create an event handler function for when someone sends
     // us a new memo.
@@ -347,6 +352,55 @@ const AppProvider = ({children}) => {
 
 	}
 
+	const darkLightToggle = () =>{
+		const _main = document.querySelector('main');
+		const _body = document.querySelector('body');
+		//const _button = document.querySelector('.btn-nice');
+		
+		if(_main.classList.contains('dark') && _body.classList.contains('dark') && darkMode===true){
+			_main.classList.remove('dark')
+			_body.classList.remove('dark')
+			setDarkMode(false)
+			
+		}else{
+			_main.classList.add('dark')
+			_body.classList.add('dark')
+			setDarkMode(true)
+		
+		}
+		/*
+		if(_buttons!==[]){
+			/*if(_button.classList.contains('dark')){
+		
+				_button.classList.remove('dark')
+			}else{
+	
+				_button.classList.add('dark')
+			}*
+			console.log(_buttons)
+			_buttons.forEach(_button => {
+				if(_button.classList.contains('dark')){
+		
+					_button.classList.remove('dark')
+				}else{
+		
+					_button.classList.add('dark')
+				}
+
+
+			})*/
+
+		
+
+		
+	
+
+
+		
+		console.log("dark light toggle called")
+
+	}
+
 	
 
 	//0 http://localhost:3000/portfolio for removing
@@ -381,7 +435,9 @@ const AppProvider = ({children}) => {
 		message,
 		buyTea,
 		memos,
-		handlers}}>{children}</ AppContext.Provider>
+		handlers,
+		darkLightToggle,
+		darkMode}}>{children}</ AppContext.Provider>
 	)
 
 }

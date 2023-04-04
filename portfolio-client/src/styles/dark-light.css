@@ -1,0 +1,52 @@
+main.dark {
+    background: black;
+    color: white;
+    
+  }
+
+
+body.dark{
+    background: black;
+    color: white;
+}
+
+.btn-nice.dark a{
+    text-decoration:none;
+    color:white;
+   
+   
+  }
+  
+.btn-nice.dark a:hover{
+    text-decoration:none;
+    color:black;
+   
+   
+}
+  
+  
+  
+.btn-nice.dark{
+    
+    border:solid 2px #fff;
+    background: transparent;
+    color: #fff;
+    padding:5px;
+    margin: 2px;
+}
+  
+  
+  
+  
+  .btn-nice.dark:hover,
+  .btn-nice.dark:active,
+  .btn-nice.dark:hover *,
+  .btn-nice.dark:active *{
+    
+    border:solid 2px #fff;
+    background: #fff;
+    color: black;
+  
+  }
+
+

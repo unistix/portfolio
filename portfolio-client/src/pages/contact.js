@@ -4,7 +4,7 @@ import { useGlobalContext} from '../context/context'
 
 const Contact = () => {
   const [formStatus, setFormStatus] = React.useState('Send')
-  const {cname, setName, message, setMessage, handlers} = useGlobalContext()
+  const {cname, setName, message, setMessage, handlers, darkMode} = useGlobalContext()
 
   
   const nameValue = React.useRef('');
@@ -113,9 +113,13 @@ const Contact = () => {
               </label>
               <textarea className="form-control" id="message" ref={messageValue} required onChange={() => setMessage(messageValue.current.value) }/>
             </div>
-            <button className="btn" type="submit">
+            {darkMode?
+            <button className="btn btn-nice dark" type="submit">
               {formStatus}
-            </button>
+            </button>:
+            <button className="btn btn-nice" type="submit">
+            {formStatus}
+          </button>}
           </form>
         </div>
         <div className='buy-tea-container'>
