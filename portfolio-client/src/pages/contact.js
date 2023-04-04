@@ -24,8 +24,9 @@ const Contact = () => {
       message: message.value,
     }
     //console.log(formData)
-
-    const response = await fetch("http://127.0.0.1:8080/contact", {
+    //http://127.0.0.1:8080/contact
+    //http://3.101.62.25:8080/contact
+    const response = await fetch("http://3.101.62.25:8080/contact", {
       method: "POST", 
       headers: {
       "Content-Type": "application/json"
