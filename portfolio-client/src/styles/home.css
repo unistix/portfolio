@@ -1,0 +1,66 @@
+
+  /**
+  * Headline
+  */
+
+  h1 {
+    font-size: 36px; /* increase font size for better readability */
+    line-height: 1.2; /* increase line-height for better spacing between each part of the title */
+  }
+  
+  h1 span {
+    display: inline-block; /* make each part of the title a block element */
+  }
+  
+  h1 span:first-of-type {
+    font-weight: bold; /* add some emphasis with bold text for the Full Stack Blockchain Developer part */
+    color: #0F4C81; /* use a darker color to make it stand out */
+  }
+  
+  h1 span:last-of-type {
+    font-style: italic; /* add a touch of elegance with italic text for the Digital Marketing Specialist part */
+    color: #6D6D6D; /* use a lighter color to differentiate it from the Full Stack Blockchain Developer part */
+  }
+/*
+  headline
+  This CSS code would make the Full Stack Blockchain Developer part stand out with bold text and a darker color, while the Digital Marketing Specialist part would be in a lighter color and italic text for a touch of elegance. Using display: inline-block for each part of the title would also make it easier to differentiate the two parts. Finally, increasing the font size and line-height of the title would improve readability and make it more visually appealing overall.
+
+
+
+
+
+
+
+
+*/
+
+p {
+    font-size: 24px; /* increase font size for better readability */
+    line-height: 1.5; /* increase line-height for better spacing between sentences */
+    margin-bottom: 30px; /* add some space between each sentence */
+  }
+  
+  p:first-of-type {
+    font-size: 36px; /* make the first sentence stand out with a larger font size */
+    font-weight: bold; /* add some emphasis with bold text */
+  }
+  
+  p:nth-of-type(even) {
+    color: #999; /* make every other sentence a lighter color to create visual interest */
+  }
+  
+  p:last-of-type {
+    font-style: italic; /* add a touch of elegance with italic text for the last sentence */
+  }
+
+  /*
+  This CSS code would make the first sentence stand out with a larger font size and bold text,
+   every other sentence a lighter color to create visual interest, 
+   and the last sentence in italic text for a touch of elegance. Additionally, 
+  increasing the font size and line-height of the paragraph and adding 
+  some space between each sentence would improve readability and make the paragraph more visually appealing overall.
+
+  copy_text
+  
+  
+  */

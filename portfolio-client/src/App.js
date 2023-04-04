@@ -7,6 +7,7 @@ import Portfolio  from "./pages/portfolio"
 import Nav  from "./components/Nav"
 import Sidebar  from "./components/Sidebar"
 import SwiperDots  from "./components/SwiperDots"
+import { FaIcicles } from 'react-icons/fa';
 import './styles/dark-light.css';
 
 import SwipeHandleWrapper  from "./components/SwipeHandleWrapper"
@@ -24,7 +25,7 @@ function App() {
      
       <Sidebar />
       <Nav/>
-      <h1>Portfolio Site</h1>
+      <h1><FaIcicles/></h1>
       <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/portfolio" element={<Portfolio />} />
