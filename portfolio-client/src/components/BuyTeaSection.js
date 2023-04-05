@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import SignCard  from "./SignCard"
 import { useGlobalContext} from '../context/context'
 import '../styles/buyTea.css';
+import site_copy from '../utils/copy';
 
 const BuyTeaSection = () => {
     const {currentAccount, checkChainID, currentChainId, networkError, setNetworkError, networkErrorHelper, networkSuccess,  requestAccount, buyTea, memos, networkLoading} = useGlobalContext()
@@ -57,8 +58,8 @@ const BuyTeaSection = () => {
     
     
   return (
-    <div>
-        <h3>BuyTeaSection</h3>
+    <div className="">
+        <p> {site_copy && site_copy.contact.tea_section.intro}</p>
 
     
         <SignCard/>
@@ -69,12 +70,13 @@ const BuyTeaSection = () => {
             <>
             <p>You can buy Tea</p>
             <p>If you would like to leave a message with your tea, fill out the name and message sections of the contact us form. Leave blank for anonymous tea.</p>
+           
             
             <button className='btn-nice' id="button-not-connected" onClick={() => buyTea("peppermint")}> Buy Peppermint Tea </button>
             <button className='btn-nice' id="button-not-connected" onClick={() => buyTea("ginger")}> Buy Ginger Tea </button>
             <button className='btn-nice' id="button-not-connected" onClick={() => buyTea("chamomile")}> Buy Chamomile Tea </button>
             {currentAccount && (<h1>Memos received</h1>)}
-            <p className="error" >{networkError}</p>
+            
             <p className="warning" ></p>
             <p className="success" >{networkSuccess}</p>
             <p className="warning" >{networkLoading}</p>
@@ -100,6 +102,7 @@ const BuyTeaSection = () => {
         ) : (
             <p>Connect <a href='https://metamask.io/download/' target='_blank'>metamask</a> to buy tea</p>
         )}
+        <p className="error" >{networkError}</p>
         <>
         
         </>

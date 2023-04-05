@@ -1,0 +1,14 @@
+img.dark{
+ 
+        -webkit-filter: contrast(500%) grayscale(100%) invert(100%);
+        filter: contrast(1000%) grayscale(100%) invert(100%);
+    
+}
+
+img{
+ 
+        -webkit-filter: contrast(500%) grayscale(100%);
+        filter: contrast(1000%) grayscale(100%);
+    
+}
+

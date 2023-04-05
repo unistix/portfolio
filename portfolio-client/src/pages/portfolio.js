@@ -1,6 +1,8 @@
 import React from 'react'
 import { useGlobalContext} from '../context/context'
 import projects from '../utils/data';
+import site_copy from '../utils/copy';
+import '../styles/portfolio.css';
 
 const Portfolio = () => {
   const {handlers, darkMode} = useGlobalContext();
@@ -8,10 +10,10 @@ const Portfolio = () => {
   
   return (
     <>
-    <div className='main-area'{...handlers}>
-      <p>Portfolio</p>
+    <div className={darkMode?'main-area dark' :'main-area'}{...handlers}>
+      <h1>{site_copy && site_copy.portfolio.title}</h1>
       <div className='portfolio-item-container'>
-      {projects.map((item,id)=>{
+      {projects && projects.map((item,id)=>{
 
         const {title,category,img, src_link, demo_link, description} = item;
 
@@ -20,7 +22,7 @@ const Portfolio = () => {
           <p className="portfolio-title">{title}</p>
           <p className="portfolio-category">{category}</p>
           <p className="portfolio-description">{description}</p>
-          <img src={img} className="portfolio-image"/>
+          {darkMode? <img src={img} className="portfolio-image dark"/>:<img src={img} className="portfolio-image"/>}
 
           <div className="btn-container">
           {darkMode? 

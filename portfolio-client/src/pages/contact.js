@@ -1,6 +1,7 @@
 import React from 'react'
 import BuyTeaSection  from "../components/BuyTeaSection"
 import { useGlobalContext} from '../context/context'
+import site_copy from '../utils/copy';
 
 const Contact = () => {
   const [formStatus, setFormStatus] = React.useState('Send')
@@ -92,9 +93,12 @@ const Contact = () => {
   
   return (
     <>
-    <div className='main-area'{...handlers}>
-      <p>Contact Us</p>
+    <div className={darkMode?'main-area dark' :'main-area'}{...handlers}>
+      {site_copy && <h1>{site_copy.contact.title}</h1>}
         <div className='form-container'>
+          <div className="form-instructions-container">
+            <p>{site_copy && site_copy.contact.form_instructions}</p>
+          </div>
           <form onSubmit={handleSubmit}>
             <div className="form-input">
               <label className="form-label" htmlFor="name">

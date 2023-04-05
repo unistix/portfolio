@@ -28,9 +28,10 @@ const AppProvider = ({children}) => {
 	const [name, setName] = useState("");
   	const [message, setMessage] = useState("");
 	const [memos, setMemos] = useState([]);
-	const [darkMode, setDarkMode] = useState(false);
+	const [darkMode, setDarkMode] = useState(true);
 
 	const sectionArray = ["/","/portfolio","/contact"] //use this instead of get section name and hard indexing long term
+	
 
 	const getSectionId = () => {
 
@@ -225,6 +226,7 @@ const AppProvider = ({children}) => {
 		  const { ethereum } = window;
 		  if(typeof window.ethereum !== 'undefined') {
 		  //await requestAccount();
+			if( currentChainId==80001){ //remember to switch for mainnet
 	
 		  const provider = new ethers.providers.Web3Provider(window.ethereum);
 			const signer = provider.getSigner();
@@ -238,8 +240,13 @@ const AppProvider = ({children}) => {
 			const memos = await buyMeACoffee.getMemos();
 			console.log("fetched!");
 			setMemos(memos);
+			}else	{
+				console.log("Can't fetch memos from incorect chain");
+				setNetworkError("Swap to polygon testnet to buy tea")
+			}
 		  } else {
 			console.log("Metamask is not connected");
+			
 		  }
 		  
 		} catch (error) {
@@ -355,16 +362,18 @@ const AppProvider = ({children}) => {
 	const darkLightToggle = () =>{
 		const _main = document.querySelector('main');
 		const _body = document.querySelector('body');
-		//const _button = document.querySelector('.btn-nice');
+		//const _toggle_button = document.querySelector('.slider.round:before');
 		
 		if(_main.classList.contains('dark') && _body.classList.contains('dark') && darkMode===true){
 			_main.classList.remove('dark')
 			_body.classList.remove('dark')
+			//_toggle_button.classList.remove('dark')
 			setDarkMode(false)
 			
 		}else{
 			_main.classList.add('dark')
 			_body.classList.add('dark')
+			//_toggle_button.classList.add('dark')
 			setDarkMode(true)
 		
 		}

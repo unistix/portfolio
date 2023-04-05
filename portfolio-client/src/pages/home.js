@@ -2,18 +2,18 @@ import React from 'react'
 import { useGlobalContext} from '../context/context'
 import pdf from "../utils/cv.pdf"
 import { Route, Routes, Link } from "react-router-dom"
+import site_copy from '../utils/copy';
 
 const Home = () => {
+  console.log(site_copy.headline)
   const {handlers, darkMode} = useGlobalContext();
   return (
     <>
-    <div className='main-area'{...handlers}>
-      <p>Home</p>
+    <div className={darkMode?'main-area dark' :'main-area'}{...handlers}>
+      <p><br/></p>
       <div className='home-section'> 
-        <p>Full Stack Web3 Developer</p>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-        when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+        {site_copy && <p>{site_copy.home.headline}</p>}
+        {site_copy && <p>{site_copy.home.copy_text}</p>}
           {darkMode? 
      
             <>

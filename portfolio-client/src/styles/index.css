@@ -72,10 +72,30 @@ main {
 
 .main-area {
  width:80%;
- margin:0 auto;
+
+ overflow-y:hidden;
+ margin: 75px auto;
+ height:80vh;
+ border: 2px solid black;
+
+ 
   
+  /*
+  */
   
 }
+/*
+.portfolio-item-container{
+  overflow-y:auto;
+  margin: 0 auto;
+  border: 1px solid white;
+  width: 80%;
+  height: 90%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}*/
 
 
 
@@ -116,7 +136,7 @@ main {
 
 .main-area{
   
-  height:80vh;
+  
 }
 
 
@@ -263,7 +283,7 @@ Light Dark Slider
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
+  background-color: white; 
   -webkit-transition: .4s;
   transition: .4s;
 }
@@ -281,7 +301,8 @@ Light Dark Slider
 }
 
 input:checked + .slider {
-  background-color: #03080d;
+  /*background-color:*/
+  background-color:  #03080d; /*This is a really nice shade of black*/
 }
 
 input:focus + .slider {
@@ -301,6 +322,11 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+  background-color:  #03080d; 
+}
+
+input:checked + .slider.round:before {
+  background-color: white;
 }
 
 
@@ -353,13 +379,14 @@ Portfolio
 .portfolio-item-container{
   overflow-y:auto;
   margin: 0 auto;
-  border: 1px solid white;
+ 
   width: 80%;
   height: 90%;
   display: flex;
   align-items: center;
   gap: 20px;
   flex-wrap: wrap;
+  padding-top:20px;
 }
 
 .portfolio-image{
@@ -368,9 +395,48 @@ Portfolio
 }
 
 .portfolio-item{
-  height:40%;
+  height:55%;
   width:40%;
-  margin: 0 auto;
+  margin: 10px auto;
+  border: 1px solid white;
+}
+/*
+=============== 
+Portfolio 
+===============
+*/
+
+.footer-container{
+    position: fixed;
+    bottom: 6px;
+    right: 50%;
+    text-align: center;
+    align-items: center;
+    font-size: 0.7rem;
+    display: flex;
+    flex-direction: column;
+  
+    transform: translate(50%, 0);
+    color:#818589;
+    color: rgba(0, 0, 0, 1);
+
+   
+}
+
+.footer-container > p{
+  margin: -3px !important;
+  padding:0 !important;
+
+}
+
+.footer-icon{
+  margin: 3px !important;
+  padding:0 !important;
+  font-size: 1.1rem;
+  display: flex;
+  flex-direction: row;
+  gap:5px;
+
 }
 
 

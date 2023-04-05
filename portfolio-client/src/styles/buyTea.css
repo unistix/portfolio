@@ -14,3 +14,13 @@
 }
 
 /*Scroll box for memos instrad of showing first three*/
+
+
+.buy-tea-container{
+    overflow-y:auto; 
+    height:60%;
+    margin: 0 auto;
+    
+    width: 80%;
+        
+  }

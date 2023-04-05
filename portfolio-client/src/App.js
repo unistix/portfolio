@@ -6,6 +6,7 @@ import Contact  from "./pages/contact"
 import Portfolio  from "./pages/portfolio"
 import Nav  from "./components/Nav"
 import Sidebar  from "./components/Sidebar"
+import Footer  from "./components/Footer"
 import SwiperDots  from "./components/SwiperDots"
 import { FaIcicles } from 'react-icons/fa';
 import './styles/dark-light.css';
@@ -18,22 +19,30 @@ import SwipeHandleWrapper  from "./components/SwipeHandleWrapper"
 
 
 function App() {
+  //const _main = document.querySelector('main');
+	const _body = document.querySelector('body');
+  //_main.classList.add('dark')
+	_body.classList.add('dark')
+
+
   return (
     <div className="App">
       
-      <main>
+      <main className='dark'>
      
       <Sidebar />
       <Nav/>
-      <h1><FaIcicles/></h1>
+      {/*<h1><FaIcicles/></h1>*/}
       <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/portfolio" element={<Portfolio />} />
       <Route path="/contact" element={<Contact />} />
       </Routes>
       <SwiperDots/>
+     
 
       </main>
+      <Footer/>
       
     </div>
     

@@ -8,6 +8,7 @@ import Portfolio  from "../pages/portfolio"
 
 import { useGlobalContext} from '../context/context'
 import { FaBars, FaAngleLeft, FaAngleRight } from 'react-icons/fa'
+import { BsFillMoonFill, BsFillSunFill} from 'react-icons/bs'
 
 const Nav = () => {
   const {toggleSidebar, handleLeft, handleRight, currentSection, setCurrentSection, getNextSectionName, getSectionId, darkLightToggle, handler} = useGlobalContext();
