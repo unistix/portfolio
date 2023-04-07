@@ -9,14 +9,7 @@ canvas{
     left: 0;
     filter:blur(10px) contrast(30);
     
-    /*background:blue;*/
-    /*background:blue; 
-    filter:blur(10px) contrast(30);
-    
-    z-index: 5;
-    
-    position: absolute;*/
-
+  
 }
 
 
@@ -30,12 +23,5 @@ canvas.dark{
     left: 0;
     filter:blur(10px) contrast(30);
     
-    /*background:blue;*/
-    /*background:blue; 
-    filter:blur(10px) contrast(30);
-    
-    z-index: 5;
-    
-    position: absolute;*/
 
 }
