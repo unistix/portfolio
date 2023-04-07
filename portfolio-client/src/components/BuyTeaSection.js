@@ -5,7 +5,7 @@ import '../styles/buyTea.css';
 import site_copy from '../utils/copy';
 
 const BuyTeaSection = () => {
-    const {currentAccount, checkChainID, currentChainId, networkError, setNetworkError, networkErrorHelper, networkSuccess,  requestAccount, buyTea, memos, networkLoading} = useGlobalContext()
+    const {currentAccount, checkChainID, currentChainId, networkError, setNetworkError, networkErrorHelper, networkSuccess,  requestAccount, buyTea, memos, networkLoading, darkMode} = useGlobalContext()
     
     const delay = ms => new Promise(res => setTimeout(res, ms)); 
 
@@ -66,15 +66,15 @@ const BuyTeaSection = () => {
         {currentAccount ? (
           /*<p>You can buy Tea</p> */
           /*If not <p>You need to switch to polygon network buy tea</p>*/
-          parseInt(currentChainId) === 80001 ? (
+          parseInt(currentChainId) === 137 ? (
             <>
             <p>You can buy Tea</p>
             <p>If you would like to leave a message with your tea, fill out the name and message sections of the contact us form. Leave blank for anonymous tea.</p>
            
             
-            <button className='btn-nice' id="button-not-connected" onClick={() => buyTea("peppermint")}> Buy Peppermint Tea </button>
-            <button className='btn-nice' id="button-not-connected" onClick={() => buyTea("ginger")}> Buy Ginger Tea </button>
-            <button className='btn-nice' id="button-not-connected" onClick={() => buyTea("chamomile")}> Buy Chamomile Tea </button>
+            <button className={darkMode?'btn-nice dark' :'btn-nice'} id="button-not-connected" onClick={() => buyTea("peppermint")}> Buy Peppermint Tea </button>
+            <button className={darkMode?'btn-nice dark' :'btn-nice'} id="button-not-connected" onClick={() => buyTea("ginger")}> Buy Ginger Tea </button>
+            <button className={darkMode?'btn-nice dark' :'btn-nice'} id="button-not-connected" onClick={() => buyTea("chamomile")}> Buy Chamomile Tea </button>
             {currentAccount && (<h1>Memos received</h1>)}
             
             <p className="warning" ></p>
@@ -100,7 +100,7 @@ const BuyTeaSection = () => {
           : setNetworkError("you need to switch to the polygon testnet")
 
         ) : (
-            <p>Connect <a href='https://metamask.io/download/' target='_blank'>metamask</a> to buy tea</p>
+            <p>Connect <a href='https://metamask.io/download/' target='_blank' className={darkMode?'dark' :''}>metamask</a> to buy tea</p>
         )}
         <p className="error" >{networkError}</p>
         <>

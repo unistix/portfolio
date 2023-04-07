@@ -1,10 +1,11 @@
 main.dark {
-    background: black;
+    
     color: white;
     
 }
 .main-area.dark{
   border: 2px solid white;
+  background: black;
 }
 
 
@@ -70,4 +71,76 @@ body.dark{
    
 }
 
+.dark > a{
+  text-decoration:none;
+  color: white;
+  
+}
 
+a.dark{
+  text-decoration:none;
+  color: white;
+} 
+
+.links.dark > li > a{
+  color: white;
+}
+
+.sidebar.dark {
+  
+  background: black !important;
+ 
+  border: 2px solid white;
+  
+  box-shadow: none;
+  
+}
+
+.show-sidebar.dark {
+  
+  
+ 
+  border: 2px solid white;
+  box-shadow: 1px 1px 5px grey;
+  
+  
+}
+
+.nav-arrow.dark{
+  color: white;
+}
+
+
+.dark > *::-webkit-scrollbar-track
+{
+	border: 1px solid white;
+	background-color: #0A0A0A;
+}
+
+.dark > *::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: #0A0A0A;
+}
+
+.dark > *::-webkit-scrollbar-thumb
+{
+	background-color: #FFFFFF;	
+}
+
+.dark > .portfolio-item-container > .portfolio-item
+{
+	border: 2px solid white;	
+}
+
+
+.dark > .buy-tea-container > .portfolio-item
+{
+	border: 2px solid white;	
+}
+
+.dark > .form-container > form > .form-input> .form-control{
+  background: black;
+  color: white;
+
+}

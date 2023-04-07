@@ -17,6 +17,8 @@ const AppProvider = ({children}) => {
 
 	/*Metamask and buy me a tea contract */
 	const contractAddress = "0x2d6b4449124f3f269d62101A3C31E5ed6C60f7D0";
+	//
+	//npx hardhat verify --network mainnet 0x2d6b4449124f3f269d62101A3C31E5ed6C60f7D0
   	const contractABI = abi.abi;
 
   	const [currentAccount, setCurrentAccount] = useState("");
@@ -226,7 +228,7 @@ const AppProvider = ({children}) => {
 		  const { ethereum } = window;
 		  if(typeof window.ethereum !== 'undefined') {
 		  //await requestAccount();
-			if( currentChainId==80001){ //remember to switch for mainnet
+			if( currentChainId==1371){ //remember to switch for mainnet
 	
 		  const provider = new ethers.providers.Web3Provider(window.ethereum);
 			const signer = provider.getSigner();

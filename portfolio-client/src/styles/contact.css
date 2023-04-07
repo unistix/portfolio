@@ -1,0 +1,9 @@
+.form-input{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    /*align-items: center;*/
+    margin: 0 auto;
+    text-align: left;
+    padding: 0.25rem 0;
+}

@@ -11,7 +11,7 @@ import { FaBars, FaAngleLeft, FaAngleRight } from 'react-icons/fa'
 import { BsFillMoonFill, BsFillSunFill} from 'react-icons/bs'
 
 const Nav = () => {
-  const {toggleSidebar, handleLeft, handleRight, currentSection, setCurrentSection, getNextSectionName, getSectionId, darkLightToggle, handler} = useGlobalContext();
+  const {toggleSidebar, handleLeft, handleRight, currentSection, setCurrentSection, getNextSectionName, getSectionId, darkLightToggle, darkMode, handler} = useGlobalContext();
   
   
   //const section = getSectionName(currentSection)
@@ -69,12 +69,12 @@ const Nav = () => {
         </label>
 
        
-        <Link to={ currentSection-1 < 0 ? getNextSectionName(2):getNextSectionName(currentSection-1)} className="nav-arrow" onClick={handleLeft} id="swipe-left">
+        <Link to={ currentSection-1 < 0 ? getNextSectionName(2):getNextSectionName(currentSection-1)} className={darkMode?'nav-arrow dark' :'nav-arrow '} onClick={handleLeft} id="swipe-left">
        
             <FaAngleLeft className='nav-arrow-left' />
       
         </Link>
-        <Link to={currentSection+1 > 2 ? getNextSectionName(0):getNextSectionName(currentSection+1)} className="nav-arrow" onClick={handleRight}  id="swipe-right">
+        <Link to={currentSection+1 > 2 ? getNextSectionName(0):getNextSectionName(currentSection+1)} className={darkMode?'nav-arrow dark' :'nav-arrow '} onClick={handleRight}  id="swipe-right">
      
           <FaAngleRight className='nav-arrow-right'/>
 

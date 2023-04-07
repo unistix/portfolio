@@ -5,6 +5,7 @@ import Home  from "./pages/home"
 import Contact  from "./pages/contact"
 import Portfolio  from "./pages/portfolio"
 import Nav  from "./components/Nav"
+import Lava  from "./components/Lava"
 import Sidebar  from "./components/Sidebar"
 import Footer  from "./components/Footer"
 import SwiperDots  from "./components/SwiperDots"
@@ -32,6 +33,7 @@ function App() {
      
       <Sidebar />
       <Nav/>
+      <Lava/>
       {/*<h1><FaIcicles/></h1>*/}
       <Routes>
       <Route path="/" element={<Home />} />

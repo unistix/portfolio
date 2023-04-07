@@ -2,6 +2,7 @@ import React from 'react'
 import BuyTeaSection  from "../components/BuyTeaSection"
 import { useGlobalContext} from '../context/context'
 import site_copy from '../utils/copy';
+import '../styles/contact.css';
 
 const Contact = () => {
   const [formStatus, setFormStatus] = React.useState('Send')
@@ -102,19 +103,19 @@ const Contact = () => {
           <form onSubmit={handleSubmit}>
             <div className="form-input">
               <label className="form-label" htmlFor="name">
-                Name
+                Name:
               </label>
               <input className="form-control" type="text" id="name" ref={nameValue} required onChange={() => setName(nameValue.current.value)}/>
             </div>
             <div className="form-input">
               <label className="form-label" htmlFor="email">
-                Email
+                Email:
               </label>
               <input className="form-control" type="email" id="email" required />
             </div>
             <div className="form-input">
               <label className="form-label" htmlFor="message">
-                Message
+                Message:
               </label>
               <textarea className="form-control" id="message" ref={messageValue} required onChange={() => setMessage(messageValue.current.value) }/>
             </div>

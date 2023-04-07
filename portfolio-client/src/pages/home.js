@@ -3,6 +3,7 @@ import { useGlobalContext} from '../context/context'
 import pdf from "../utils/cv.pdf"
 import { Route, Routes, Link } from "react-router-dom"
 import site_copy from '../utils/copy';
+import '../styles/home.css';
 
 const Home = () => {
   console.log(site_copy.headline)
@@ -12,7 +13,7 @@ const Home = () => {
     <div className={darkMode?'main-area dark' :'main-area'}{...handlers}>
       <p><br/></p>
       <div className='home-section'> 
-        {site_copy && <p>{site_copy.home.headline}</p>}
+        {site_copy && <h3>{site_copy.home.headline}</h3>}
         {site_copy && <p>{site_copy.home.copy_text}</p>}
           {darkMode? 
      
