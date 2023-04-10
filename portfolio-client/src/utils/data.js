@@ -20,7 +20,7 @@ const projects = [
         img:'https://unistix.mypinata.cloud/ipfs/QmT34QTzGsbmJT7TLXaf57xsxf9nwrhLDWddrTFX9autbT',
         src_link:'https://github.com/unistix/weather/tree/master/weather-app',
         demo_link:"https://weather-d03090u08-unistix.vercel.app/",
-        description:"Tipping smart contract set up on test net"
+        description:"App to show weather in any city or country"
 
 
     },
