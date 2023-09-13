@@ -5,6 +5,16 @@
 
 const projects = [
     {
+        title:'Sushiswap Apeswap Arbitrage Bot',
+        category:'Javascript',
+        img:'https://unistix.mypinata.cloud/ipfs/QmQ44it4y8ifa5F6mq475PWJVgADifDMLPFvKscguBXu7d',
+        src_link:'https://github.com/unistix/arbitrage-trading-bot',
+        demo_link:"https://github.com/unistix/arbitrage-trading-bot",
+        description:"Triangular arbitrage bot on Polygon"
+
+
+    },
+    {
         title:'ChatGPT Clone',
         category:'Javascript',
         img:'https://unistix.mypinata.cloud/ipfs/QmZREHyAz57biK6E526qAsTGPR2fvJnDkT2YpEbMvM6pUy',
